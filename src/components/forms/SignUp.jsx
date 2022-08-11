@@ -1,6 +1,8 @@
 import { Flex, Input } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../../reducers/authReducers";
 import {
   FormControl,
   FormLabel,
@@ -13,9 +15,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 export default function SignUp() {
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-
+  const data = useSelector((state) => state.auth.count);
   const [formData, setFomData] = useState({
     fullName: "",
     email: "",
