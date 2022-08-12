@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../reducers/authReducers";
 import { signupUser } from "../../reducers/authReducers";
+import { unwrapResult } from "@reduxjs/toolkit";
 import {
   FormControl,
   FormLabel,
@@ -14,9 +15,11 @@ import {
   Button,
   Divider,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 export default function SignUp() {
   const dispatch = useDispatch();
+  const toast = useToast();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const data = useSelector((state) => state.auth.count);
@@ -34,7 +37,27 @@ export default function SignUp() {
     });
   };
   const signup = async () => {
-    dispatch(signupUser(formData));
+    dispatch(signupUser(formData))
+      .then(unwrapResult)
+      .then((res) => {
+        console.log(res);
+        toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: "Account cannot be created.",
+          description: "User already exists",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   };
   return (
     <Flex>

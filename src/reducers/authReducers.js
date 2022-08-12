@@ -15,17 +15,11 @@ export default authSlice.reducer;
 export const signupUser = createAsyncThunk(
   "auth/signupUser",
   async (payload) => {
-    try {
-      const data = await axios({
-        url: "http://fathomless-meadow-37873.herokuapp.com/auth/signup",
-        method: "POST",
-        data: payload,
-      });
-
-      // return data;
-    } catch (err) {
-      // return err;
-      console.log(err);
-    }
+    const data = await axios({
+      url: "http://fathomless-meadow-37873.herokuapp.com/auth/signup",
+      method: "POST",
+      data: payload,
+    });
+    return data;
   }
 );
