@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const BASE_URL = "http://fathomless-meadow-37873.herokuapp.com/";
+const BASE_URL = "https://fathomless-meadow-37873.herokuapp.com/";
 
 export const authSlice = createSlice({
   name: "Auth",
