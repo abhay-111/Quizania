@@ -39,11 +39,8 @@ export default function SignUp() {
     });
   };
   const signup = async () => {
-    axios({
-      url: "http://fathomless-meadow-37873.herokuapp.com/auth/signup",
-      method: "POST",
-      data: formData,
-    })
+    dispatch(signupUser(formData))
+      .then(unwrapResult)
       .then((res) => {
         cookie.set("accessToken", res.data.data);
         toast({

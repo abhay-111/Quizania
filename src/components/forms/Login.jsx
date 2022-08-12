@@ -1,6 +1,9 @@
 import { Flex, Input, useToast } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import { loginUser } from "../../reducers/authReducers";
+import { useDispatch } from "react-redux/es/exports";
+import { unwrapResult } from "@reduxjs/toolkit";
 import {
   FormControl,
   FormLabel,
@@ -15,6 +18,7 @@ import {
 import axios from "axios";
 export default function Login() {
   const toast = useToast();
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
@@ -31,12 +35,10 @@ export default function Login() {
     console.log(formData);
   };
   const login = () => {
-    axios({
-      url: "http://fathomless-meadow-37873.herokuapp.com/auth/login",
-      method: "POST",
-      data: formData,
-    })
+    dispatch(loginUser(formData))
+      .then(unwrapResult)
       .then((res) => {
+        console.log(res);
         toast({
           title: "Logged in successfully",
           description: "Get ready to make quiz",
