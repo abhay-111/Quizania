@@ -33,3 +33,37 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (payload) => {
   });
   return data;
 });
+export const sendUserOtp = createAsyncThunk(
+  "auth/sendUserOtp",
+  async (payload) => {
+    const data = await axios({
+      url: `${BASE_URL}auth/changepassword`,
+      method: "POST",
+      data: payload,
+    });
+    return data;
+  }
+);
+export const verifyUserOtp = createAsyncThunk(
+  "auth/sendUserOtp",
+  async (payload) => {
+    const data = await axios({
+      url: `${BASE_URL}auth/verifyOtp`,
+      method: "POST",
+      data: payload,
+    });
+    return data;
+  }
+);
+
+export const changeUserPassword = createAsyncThunk(
+  "auth/changeUserPassword",
+  async (payload) => {
+    const data = await axios({
+      url: `${BASE_URL}auth/passwordchange`,
+      method: "POST",
+      data: payload,
+    });
+    return data;
+  }
+);
