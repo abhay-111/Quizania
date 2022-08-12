@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../reducers/authReducers";
 import { signupUser } from "../../reducers/authReducers";
 import { unwrapResult } from "@reduxjs/toolkit";
+import cookie from "js-cookie";
+import axios from "axios";
 import {
   FormControl,
   FormLabel,
@@ -37,10 +39,13 @@ export default function SignUp() {
     });
   };
   const signup = async () => {
-    dispatch(signupUser(formData))
-      .then(unwrapResult)
+    axios({
+      url: "http://fathomless-meadow-37873.herokuapp.com/auth/signup",
+      method: "POST",
+      data: formData,
+    })
       .then((res) => {
-        console.log(res);
+        cookie.set("accessToken", res.data.data);
         toast({
           title: "Account created.",
           description: "We've created your account for you.",
