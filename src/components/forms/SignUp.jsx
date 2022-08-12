@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../reducers/authReducers";
+import { signupUser } from "../../reducers/authReducers";
 import {
   FormControl,
   FormLabel,
@@ -20,7 +21,7 @@ export default function SignUp() {
   const handleClick = () => setShow(!show);
   const data = useSelector((state) => state.auth.count);
   const [formData, setFomData] = useState({
-    fullName: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -32,12 +33,15 @@ export default function SignUp() {
       [event.target.name]: event.target.value,
     });
   };
+  const signup = async () => {
+    dispatch(signupUser(formData));
+  };
   return (
     <Flex>
       <FormControl>
         <Divider mb={4}></Divider>
         <FormLabel>Full Name</FormLabel>
-        <Input name="fullName" onChange={handleFormData} type="text" />
+        <Input name="username" onChange={handleFormData} type="text" />
         <FormHelperText>Eg : Jane Doe</FormHelperText>
         <FormLabel mt={3}>Email address</FormLabel>
         <Input name="email" onChange={handleFormData} type="email" />
@@ -57,7 +61,7 @@ export default function SignUp() {
           </InputRightElement>
         </InputGroup>
 
-        <Button colorScheme="purple" w="100%" mt={5}>
+        <Button onClick={signup} colorScheme="purple" w="100%" mt={5}>
           Submit
         </Button>
       </FormControl>
