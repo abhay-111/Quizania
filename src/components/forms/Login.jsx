@@ -167,7 +167,11 @@ export default function Login() {
         <ModalOverlay />
         {showOtp ? (
           <ModalContent>
-            <ModalHeader>Enter your OTP</ModalHeader>
+            <ModalHeader
+              fontSize={{ base: "sm", lg: "lg", md: "lg", sm: "sm" }}
+            >
+              Enter your OTP
+            </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <PinInput onChange={(e) => setOtp(e)}>
@@ -191,10 +195,18 @@ export default function Login() {
           </ModalContent>
         ) : showChangePassword ? (
           <ModalContent>
-            <ModalHeader>Enter your new password.</ModalHeader>
+            <ModalHeader
+              fontSize={{ base: "sm", lg: "lg", md: "lg", sm: "sm" }}
+            >
+              Enter your new password.
+            </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <FormLabel>New Password</FormLabel>
+              <FormLabel
+                fontSize={{ base: "sm", lg: "md", md: "sm", sm: "sm" }}
+              >
+                New Password
+              </FormLabel>
               <Input onChange={handleNewPassword} name="newpassword"></Input>
             </ModalBody>
 
@@ -209,10 +221,18 @@ export default function Login() {
           </ModalContent>
         ) : (
           <ModalContent>
-            <ModalHeader>Enter your registered Email.</ModalHeader>
+            <ModalHeader
+              fontSize={{ base: "sm", lg: "lg", md: "lg", sm: "sm" }}
+            >
+              Enter your registered Email.
+            </ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <FormLabel>Registered Email</FormLabel>
+              <FormLabel
+                fontSize={{ base: "sm", lg: "md", md: "sm", sm: "sm" }}
+              >
+                Registered Email
+              </FormLabel>
               <Input onChange={handleUserEmail} name="changePassword"></Input>
             </ModalBody>
 
