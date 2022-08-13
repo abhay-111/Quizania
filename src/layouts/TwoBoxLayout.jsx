@@ -23,15 +23,17 @@ export default function TwoBoxLayout() {
           gap={5}
         >
           <Image height={"5rem"} w="5rem" src={brandLogo}></Image>
-          <Flex gap={1}>
-            <Text fontSize={"4xl"} fontWeight="600">
-              Welcome to
-            </Text>
-            <Text fontSize={"4xl"} fontWeight="600" color={"purple.600"}>
-              Quizania!
-            </Text>
-          </Flex>
-          <Text fontSize={"md"} color={"purple.600"}>
+          <Text
+            fontSize={{ base: "xl", lg: "3xl", md: "xl", sm: "xl" }}
+            fontWeight="600"
+          >
+            Welcome to Quizania!
+          </Text>
+
+          <Text
+            fontSize={{ base: "xs", lg: "md", md: "sm", sm: "sm" }}
+            color={"purple.600"}
+          >
             Make quizzes for your classroom quickly.
           </Text>
           {/* Conditionally rendering Login and signup Component */}
@@ -60,6 +62,13 @@ export default function TwoBoxLayout() {
         backgroundRepeat={"no-repeat"}
         backgroundSize="cover"
         flex={2}
+        display={{
+          sm: "none",
+          md: "none",
+          lg: "block",
+          xl: "block",
+          base: "none",
+        }}
         w="100%"
       ></Box>
     </Flex>
