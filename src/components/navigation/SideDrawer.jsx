@@ -1,23 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Button,
-  Input,
-  useDisclosure,
-  Center,
-  Text,
-  Flex,
-  Box,
-  Image,
-  Divider,
-} from "@chakra-ui/react";
+import { Text, Flex, Box, Image, Divider } from "@chakra-ui/react";
 import {
   List,
   ListItem,
@@ -25,9 +8,16 @@ import {
   OrderedList,
   UnorderedList,
 } from "@chakra-ui/react";
-import { PhoneIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
+import {
+  PhoneIcon,
+  HamburgerIcon,
+  AtSignIcon,
+  AddIcon,
+} from "@chakra-ui/icons";
 import logo from "../../assets/logo.png";
-export default function SideDrawer() {
+import Profile from "../dashboard/Profile";
+import MainDashboard from "../MainDashboard";
+export default function SideDrawer({ setcurrentComponent }) {
   const [navigationList, setnavigationList] = useState([
     {
       linkName: "Main Dashboard",
@@ -35,35 +25,40 @@ export default function SideDrawer() {
       icon: (
         <HamburgerIcon fontSize={"xl"} color={"purple.600"}></HamburgerIcon>
       ),
+      component: <MainDashboard></MainDashboard>,
     },
     {
       linkName: "Profile",
       isActive: false,
       icon: <AtSignIcon fontSize={"xl"} color={"purple.600"}></AtSignIcon>,
+      component: <Profile></Profile>,
     },
     {
       linkName: "Create a Quiz",
       isActive: false,
       icon: <PhoneIcon fontSize={"xl"} color={"purple.600"}></PhoneIcon>,
+      component: <Profile></Profile>,
     },
   ]);
   const setActive = (idx) => {
-    console.log(idx);
     let newData = navigationList.map((link, i) => {
       if (i == idx) {
         return {
           linkName: link.linkName,
           icon: link.icon,
           isActive: true,
+          component: link.component,
         };
       } else {
         return {
           linkName: link.linkName,
           icon: link.icon,
           isActive: false,
+          component: link.component,
         };
       }
     });
+    setcurrentComponent(navigationList[idx].component);
     setnavigationList(newData);
   };
   return (
@@ -84,6 +79,19 @@ export default function SideDrawer() {
         </Box>
         <Divider></Divider>
         <List spacing={7} px="5" py="5">
+          <ListItem
+            bg={"purple.600"}
+            borderRadius="xl"
+            p="3"
+            cursor={"pointer"}
+          >
+            <Flex gap={"5"} alignItems={"center"}>
+              <AddIcon fontSize={"xl"} color={"white"}></AddIcon>
+              <Text fontWeight={"700"} color="white">
+                Create a Quiz
+              </Text>
+            </Flex>
+          </ListItem>
           {navigationList.map((link, idx) => {
             return (
               <ListItem

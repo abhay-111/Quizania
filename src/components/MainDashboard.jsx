@@ -37,32 +37,18 @@ export default function MainDashboard() {
     },
   ];
   return (
-    <Box h={"100%"} w="80vw" p={10}>
-      <Breadcrumb>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">Main Dashboard</BreadcrumbLink>
-        </BreadcrumbItem>
-      </Breadcrumb>
-      <Text fontSize="3xl" fontWeight={"700"}>
-        Main Dashboard
-      </Text>
-      <Flex h={"100%"} gap="3" direction="column" w="100%">
-        <Flex w={"100%"} mt="4" gap={"5"}>
-          {userData.map((ele) => {
-            return <UserPill user={ele}></UserPill>;
-          })}
-        </Flex>
-        <Flex w={"100%"} mt="4" gap={"5"}>
-          {userData.map((ele) => {
-            return <UserPill user={ele}></UserPill>;
-          })}
-        </Flex>
-        <Leaderboard></Leaderboard>
+    <Flex h={"100%"} gap="3" direction="column" w="100%">
+      <Flex w={"100%"} mt="4" gap={"5"}>
+        {userData.map((ele) => {
+          return <UserPill user={ele}></UserPill>;
+        })}
       </Flex>
-    </Box>
+      <Flex w={"100%"} mt="4" gap={"5"}>
+        {userData.map((ele) => {
+          return <UserPill user={ele}></UserPill>;
+        })}
+      </Flex>
+      <Leaderboard></Leaderboard>
+    </Flex>
   );
 }
