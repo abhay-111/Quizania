@@ -3,7 +3,7 @@ import React from "react";
 import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 export default function CreatedQuestion({ question }) {
   return (
-    <Box w="100%" m={"5"} mt="5">
+    <Box w="100%" m={"5"} mt="5" overflow={"hidden"}>
       <Text fontWeight="600" fontSize={"lg"}>
         Question : {question.questionTitle} ?.
       </Text>
