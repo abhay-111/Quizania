@@ -21,6 +21,28 @@ export default function MainDashboard() {
     {
       pillTitle: "Username",
       pillValue: "Abhay Chauhan",
+      icon: (
+        <AtSignIcon
+          color={"#9a419a"}
+          fontSize={{ lg: "xl", base: "lg" }}
+        ></AtSignIcon>
+      ),
+    },
+    {
+      pillTitle: "Running Quizzes",
+      pillValue: "13",
+      icon: (
+        <RepeatClockIcon color={"#9a419a"} fontSize={"xl"}></RepeatClockIcon>
+      ),
+    },
+    {
+      pillTitle: "Total Quizzes",
+      pillValue: "37",
+      icon: <LockIcon color={"#9a419a"} fontSize={"xl"}></LockIcon>,
+    },
+    {
+      pillTitle: "Username",
+      pillValue: "Abhay Chauhan",
       icon: <AtSignIcon color={"#9a419a"} fontSize={"xl"}></AtSignIcon>,
     },
     {
@@ -38,12 +60,13 @@ export default function MainDashboard() {
   ];
   return (
     <Flex h={"100%"} gap="3" direction="column" w="100%">
-      <Flex w={"100%"} mt="4" gap={"5"}>
-        {userData.map((ele) => {
-          return <UserPill user={ele}></UserPill>;
-        })}
-      </Flex>
-      <Flex w={"100%"} mt="4" gap={"5"}>
+      <Flex
+        w={"100%"}
+        justifyContent="space-between"
+        mt="4"
+        flexWrap={"wrap"}
+        gap={"5"}
+      >
         {userData.map((ele) => {
           return <UserPill user={ele}></UserPill>;
         })}

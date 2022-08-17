@@ -30,9 +30,8 @@ export default function Dashboard() {
           left={{ base: "0", lg: "20vw" }}
           w={{ lg: "80vw", base: "100%" }}
           p={{ lg: 10, base: 4 }}
-          mt={{ base: "50px", lg: "" }}
         >
-          <Breadcrumb>
+          <Breadcrumb display={{ base: "none", lg: "block" }}>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">Home</BreadcrumbLink>
             </BreadcrumbItem>
@@ -42,12 +41,13 @@ export default function Dashboard() {
             </BreadcrumbItem>
           </Breadcrumb>
           <Text
+            display={{ base: "none", lg: "block" }}
             fontSize={{ base: "lg", md: "xl", lg: "3xl" }}
             fontWeight={"700"}
           >
             Main Dashboard
           </Text>
-          {currentComponent}
+          <Box mt={"25px"}>{currentComponent}</Box>
         </Box>
       </Flex>
     </Box>
