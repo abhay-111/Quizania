@@ -83,10 +83,11 @@ export default function SideDrawer({ setcurrentComponent }) {
     }
   };
   return (
-    <>
+    <Box>
       <Button
         onClick={handleSideDrawer}
         ref={drawerRef}
+        display={{ base: "block", lg: "none" }}
         position="absolute"
         left="3"
         top="3"
@@ -188,6 +189,6 @@ export default function SideDrawer({ setcurrentComponent }) {
           })}
         </List>
       </Box>
-    </>
+    </Box>
   );
 }

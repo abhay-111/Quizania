@@ -4,14 +4,18 @@ import { LockIcon } from "@chakra-ui/icons";
 export default function UserPill({ user, icon }) {
   return (
     <Box
-      w={{ lg: "33%", base: "100%" }}
-      px="8"
+      w={{ lg: "30%", base: "45%" }}
+      px={{ lg: "8", base: "2" }}
       bg="white"
-      borderRadius={"3xl"}
+      borderRadius={{ base: "xl", lg: "3xl" }}
       h="90px"
     >
       <Flex h={"100%"} gap="4" alignItems={"center"}>
-        <Box bg={"#E6DBFF"} p="5" borderRadius="full">
+        <Box
+          bg={{ lg: "#E6DBFF" }}
+          p={{ lg: "5", base: "2" }}
+          borderRadius="full"
+        >
           {user.icon}
           {/* <LockIcon color={"#9a419a"} fontSize={"2xl"}></LockIcon> */}
         </Box>
@@ -19,7 +23,7 @@ export default function UserPill({ user, icon }) {
           <Text fontSize={"xs"} fontWeight="500">
             {user.pillTitle}
           </Text>
-          <Text fontSize={"xl"} fontWeight="600">
+          <Text fontSize={{ base: "sm", lg: "xl" }} fontWeight="600">
             {user.pillValue}
           </Text>
         </Box>
