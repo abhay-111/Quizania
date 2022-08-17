@@ -47,7 +47,7 @@ export default function Login() {
       .then(unwrapResult)
       .then((res) => {
         console.log(res);
-        // Cookies.set("userToken",)
+        Cookies.set("userToken", res.data.data);
         toast({
           title: "Logged in successfully",
           description: "Get ready to make quiz",
