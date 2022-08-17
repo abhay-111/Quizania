@@ -61,7 +61,12 @@ export default function QuizMaker() {
           onChange={(e) => setQuizName(e.target.value)}
           w={{ base: "100%", lg: "60%" }}
         ></Input>
-        <Button onClick={createQuiz} colorScheme="purple" color={"white"}>
+        <Button
+          onClick={createQuiz}
+          colorScheme="purple"
+          fontSize={{ base: "xs", lg: "lg" }}
+          color={"white"}
+        >
           Create Quiz
         </Button>
         {quizCreated ? (
@@ -89,6 +94,7 @@ export default function QuizMaker() {
       {!AddQuestion ? (
         <Button
           onClick={() => setAddQuestion(true)}
+          fontSize={{ base: "xs", lg: "lg" }}
           colorScheme="purple"
           color={"white"}
           w="100%"

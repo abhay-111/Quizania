@@ -10,11 +10,17 @@ export default function UserPill({ user, icon }) {
       borderRadius={{ base: "xl", lg: "3xl" }}
       h="90px"
     >
-      <Flex h={"100%"} gap="4" alignItems={"center"}>
+      <Flex
+        h={"100%"}
+        gap={{ sm: "4", base: "1" }}
+        flexDirection={{ base: "column", sm: "row" }}
+        alignItems={"center"}
+      >
         <Box
           bg={{ lg: "#E6DBFF" }}
           p={{ lg: "5", base: "2" }}
           borderRadius="full"
+          overflow={"hidden"}
         >
           {user.icon}
           {/* <LockIcon color={"#9a419a"} fontSize={"2xl"}></LockIcon> */}
