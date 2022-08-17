@@ -3,7 +3,13 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 import { LockIcon } from "@chakra-ui/icons";
 export default function UserPill({ user, icon }) {
   return (
-    <Box w={"33%"} px="8" bg="white" borderRadius={"3xl"} h="90px">
+    <Box
+      w={{ lg: "33%", base: "100%" }}
+      px="8"
+      bg="white"
+      borderRadius={"3xl"}
+      h="90px"
+    >
       <Flex h={"100%"} gap="4" alignItems={"center"}>
         <Box bg={"#E6DBFF"} p="5" borderRadius="full">
           {user.icon}

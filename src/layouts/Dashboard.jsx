@@ -1,19 +1,37 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, Button } from "@chakra-ui/react";
 import React from "react";
 import SideDrawer from "../components/navigation/SideDrawer";
 import { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { PhoneIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
+import { useRef } from "react";
 import MainDashboard from "../components/MainDashboard";
 export default function Dashboard() {
+  const drawerRef = useRef();
   const [currentComponent, setcurrentComponent] = useState(
     <MainDashboard></MainDashboard>
   );
   return (
-    <Box bg={"#E8DEFF"} w="100vw">
-      <Flex w={"100%"} h="100%">
-        <SideDrawer setcurrentComponent={setcurrentComponent}></SideDrawer>
-        <Box h={"100%"} w="80vw" p={10}>
+    <Box bg={"#E8DEFF"} h="100vh" w="100vw">
+      <Flex
+        w={"100%"}
+        justifyContent={{ base: "center", lg: "inherit" }}
+        h="100%"
+      >
+        <SideDrawer
+          ref={drawerRef}
+          display="none"
+          setcurrentComponent={setcurrentComponent}
+        ></SideDrawer>
+        <Box
+          h={"100%"}
+          overflowY={"scroll"}
+          position={{ lg: "absolute", base: "static" }}
+          left={{ base: "0", lg: "20vw" }}
+          w={{ lg: "80vw", base: "100%" }}
+          p={{ lg: 10, base: 4 }}
+          mt={{ base: "50px", lg: "" }}
+        >
           <Breadcrumb>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">Home</BreadcrumbLink>
@@ -23,7 +41,10 @@ export default function Dashboard() {
               <BreadcrumbLink href="#">Main Dashboard</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-          <Text fontSize="3xl" fontWeight={"700"}>
+          <Text
+            fontSize={{ base: "lg", md: "xl", lg: "3xl" }}
+            fontWeight={"700"}
+          >
             Main Dashboard
           </Text>
           {currentComponent}

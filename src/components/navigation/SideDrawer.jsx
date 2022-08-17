@@ -6,19 +6,31 @@ import {
   ListItem,
   ListIcon,
   OrderedList,
+  Button,
   UnorderedList,
 } from "@chakra-ui/react";
+import { DrawerOverlay } from "@chakra-ui/react";
+import { useRef } from "react";
 import {
   PhoneIcon,
   HamburgerIcon,
   AtSignIcon,
   AddIcon,
+  CloseIcon,
+  SmallCloseIcon,
 } from "@chakra-ui/icons";
 import logo from "../../assets/logo.png";
 import Profile from "../dashboard/Profile";
 import MainDashboard from "../MainDashboard";
+import QuizMaker from "../QuizMaker";
 export default function SideDrawer({ setcurrentComponent }) {
   const [navigationList, setnavigationList] = useState([
+    {
+      linkName: "Create a new Quiz",
+      isActive: true,
+      icon: <AddIcon fontSize={"xl"} color={"purple.600"}></AddIcon>,
+      component: <QuizMaker></QuizMaker>,
+    },
     {
       linkName: "Main Dashboard",
       isActive: true,
@@ -61,9 +73,46 @@ export default function SideDrawer({ setcurrentComponent }) {
     setcurrentComponent(navigationList[idx].component);
     setnavigationList(newData);
   };
+
+  const drawerRef = useRef();
+  const handleSideDrawer = () => {
+    if (drawerRef.current.style.display == "block") {
+      drawerRef.current.style.display = "none";
+    } else {
+      drawerRef.current.style.display = "block";
+    }
+  };
   return (
     <>
-      <Box w={"20vw"} h="100vh" bg={"white"}>
+      <Button
+        onClick={handleSideDrawer}
+        ref={drawerRef}
+        position="absolute"
+        left="3"
+        top="3"
+      >
+        <HamburgerIcon></HamburgerIcon>
+      </Button>
+      <Box
+        zIndex={"1"}
+        ref={drawerRef}
+        display={{ lg: "block", base: "none" }}
+        position={{ lg: "fixed", base: "absolute" }}
+        left={{ base: "0", lg: "" }}
+        w={{ lg: "20vw", base: "60vw" }}
+        h="100vh"
+        bg={"white"}
+      >
+        <Button
+          onClick={handleSideDrawer}
+          display={{ lg: "none", base: "block" }}
+          size={"xs"}
+          position={"absolute"}
+          top="3"
+          right="3"
+        >
+          <SmallCloseIcon></SmallCloseIcon>
+        </Button>
         <Box px={5} py="10">
           <Flex
             justifyContent={"center"}
@@ -72,27 +121,43 @@ export default function SideDrawer({ setcurrentComponent }) {
             gap="2"
           >
             <Image src={logo} h="60px" w={"60px"}></Image>
-            <Text color={"purple.600"} fontSize="3xl" fontWeight="600">
+            <Text
+              color={"purple.600"}
+              fontSize={{ lg: "3xl", base: "lg" }}
+              fontWeight="600"
+            >
               Quizania
             </Text>
           </Flex>
         </Box>
         <Divider></Divider>
         <List spacing={7} px="5" py="5">
-          <ListItem
-            bg={"purple.600"}
-            borderRadius="xl"
-            p="3"
-            cursor={"pointer"}
-          >
-            <Flex gap={"5"} alignItems={"center"}>
-              <AddIcon fontSize={"xl"} color={"white"}></AddIcon>
-              <Text fontWeight={"700"} color="white">
-                Create a Quiz
-              </Text>
-            </Flex>
-          </ListItem>
           {navigationList.map((link, idx) => {
+            if (idx == 0) {
+              return (
+                <ListItem
+                  bg={"purple.600"}
+                  borderRadius="xl"
+                  p="3"
+                  cursor={"pointer"}
+                  onClick={() => setActive(idx)}
+                >
+                  <Flex gap={"5"} alignItems={"center"}>
+                    <AddIcon
+                      fontSize={{ lg: "md", base: "sm" }}
+                      color={"white"}
+                    ></AddIcon>
+                    <Text
+                      fontSize={{ base: "sm", lg: "md" }}
+                      fontWeight={"700"}
+                      color="white"
+                    >
+                      Create a Quiz
+                    </Text>
+                  </Flex>
+                </ListItem>
+              );
+            }
             return (
               <ListItem
                 key={idx}
@@ -111,7 +176,10 @@ export default function SideDrawer({ setcurrentComponent }) {
                   color={"purple.600"}
                 ></HamburgerIcon> */}
                   {link.icon}
-                  <Text fontWeight={link.isActive ? "700" : "400"}>
+                  <Text
+                    fontSize={{ base: "xs", lg: "md" }}
+                    fontWeight={link.isActive ? "700" : "400"}
+                  >
                     {link.linkName}
                   </Text>
                 </Flex>
