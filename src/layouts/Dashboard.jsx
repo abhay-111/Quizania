@@ -47,7 +47,9 @@ export default function Dashboard() {
           >
             Main Dashboard
           </Text>
-          <Box mt={"25px"}>{currentComponent}</Box>
+          <Box mt={{ lg: "25px", base: "150px" }} mb={"50px"}>
+            {currentComponent}
+          </Box>
         </Box>
       </Flex>
     </Box>
