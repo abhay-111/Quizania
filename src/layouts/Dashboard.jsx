@@ -5,30 +5,46 @@ import { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { PhoneIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import MainDashboard from "../components/MainDashboard";
 export default function Dashboard() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [currentComponent, setcurrentComponent] = useState(
     <MainDashboard></MainDashboard>
   );
   return (
-    <Box bg={"#E8DEFF"} h="100vh" w="100vw">
-      <Flex
-        w={"100%"}
-        justifyContent={{ base: "center", lg: "inherit" }}
-        h="100%"
+    // <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+    //   <DrawerOverlay />
+    //   <DrawerContent>
+    //     <DrawerCloseButton />
+    //     <DrawerHeader>Create your account</DrawerHeader>
+
+    //     <DrawerBody>
+    <Flex
+      w={"100%"}
+      justifyContent={{ base: "center", lg: "inherit" }}
+      h="100%"
+    >
+      <SideDrawer
+        display="none"
+        setcurrentComponent={setcurrentComponent}
+      ></SideDrawer>
+      <Box
+        h={"auto"}
+        position={{ lg: "absolute", base: "static" }}
+        left={{ base: "0", lg: "20vw" }}
+        w={"80vw"}
       >
-        <SideDrawer
-          display="none"
-          setcurrentComponent={setcurrentComponent}
-        ></SideDrawer>
-        <Box
-          h={"100%"}
-          overflowY={"scroll"}
-          position={{ lg: "absolute", base: "static" }}
-          left={{ base: "0", lg: "20vw" }}
-          w={{ lg: "80vw", base: "100%" }}
-          p={{ lg: 10, base: 4 }}
-        >
+        <Box h={"100%"} p={{ lg: 10, base: 4 }}>
           <Breadcrumb display={{ base: "none", lg: "block" }}>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">Home</BreadcrumbLink>
@@ -49,7 +65,17 @@ export default function Dashboard() {
             {currentComponent}
           </Box>
         </Box>
-      </Flex>
-    </Box>
+      </Box>
+    </Flex>
+    //     </DrawerBody>
+
+    //     <DrawerFooter>
+    //       <Button variant="outline" mr={3} onClick={onClose}>
+    //         Cancel
+    //       </Button>
+    //       <Button colorScheme="blue">Save</Button>
+    //     </DrawerFooter>
+    //   </DrawerContent>
+    // </Drawer>
   );
 }
