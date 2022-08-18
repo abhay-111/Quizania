@@ -52,6 +52,7 @@ export default function QuizMaker() {
       w={{ lg: "90%", base: "100%" }}
       bg="white"
       p={6}
+      mt={{ base: "50px", lg: "0px" }}
       borderRadius={"xl"}
     >
       <VStack align={"start"} spacing="15px" mb={"5"}>
