@@ -7,7 +7,6 @@ import { PhoneIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 import MainDashboard from "../components/MainDashboard";
 export default function Dashboard() {
-  const drawerRef = useRef();
   const [currentComponent, setcurrentComponent] = useState(
     <MainDashboard></MainDashboard>
   );
@@ -19,7 +18,6 @@ export default function Dashboard() {
         h="100%"
       >
         <SideDrawer
-          ref={drawerRef}
           display="none"
           setcurrentComponent={setcurrentComponent}
         ></SideDrawer>
