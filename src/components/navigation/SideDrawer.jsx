@@ -83,14 +83,17 @@ export default function SideDrawer({ setcurrentComponent }) {
     }
   };
   return (
-    <Box>
+    <>
       <Button
         onClick={handleSideDrawer}
         ref={drawerRef}
         display={{ base: "block", lg: "none" }}
-        position="absolute"
-        left="3"
-        top="3"
+        position="fixed"
+        left="0"
+        top="40%"
+        opacity={"0.7"}
+        colorScheme="purple"
+        borderRadius={"0px 10px 10px 0px"}
       >
         <HamburgerIcon></HamburgerIcon>
       </Button>
@@ -189,6 +192,6 @@ export default function SideDrawer({ setcurrentComponent }) {
           })}
         </List>
       </Box>
-    </Box>
+    </>
   );
 }
