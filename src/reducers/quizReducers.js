@@ -36,3 +36,15 @@ export const createUserQuestion = createAsyncThunk(
     return data;
   }
 );
+
+export const getQuizData = createAsyncThunk(
+  "quiz/getQuizData",
+  async (payload) => {
+    const data = await axios({
+      url: `${BASE_URL}quiz/quizData`,
+      method: "POST",
+      data: payload,
+    });
+    return data;
+  }
+);
