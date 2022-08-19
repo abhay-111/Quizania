@@ -12,7 +12,7 @@ export default function TwoBoxLayout() {
   };
   return (
     <Flex height={"100vh"}>
-      <Box flex={1} w="100%">
+      <Box bg="white" flex={1} w="100%">
         <Flex
           height={"100%"}
           justifyContent="center"

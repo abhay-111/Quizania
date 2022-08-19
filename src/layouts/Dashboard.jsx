@@ -4,6 +4,7 @@ import SideDrawer from "../components/navigation/SideDrawer";
 import { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { PhoneIcon, HamburgerIcon, AtSignIcon } from "@chakra-ui/icons";
+import { useEffect } from "react";
 import { useRef } from "react";
 import {
   Drawer,
@@ -15,8 +16,17 @@ import {
   DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 import MainDashboard from "../components/MainDashboard";
 export default function Dashboard() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!Cookies.get("userToken")) {
+      navigate("/");
+      return;
+    }
+  }, []);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [currentComponent, setcurrentComponent] = useState(
     <MainDashboard></MainDashboard>

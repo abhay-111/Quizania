@@ -36,7 +36,7 @@ export default function QuizMaker() {
   const [AddQuestion, setAddQuestion] = useState(true);
   const [QuizName, setQuizName] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [quizUrl, setquizUrl] = useState("http://localhost:3000/");
+  const [quizUrl, setquizUrl] = useState("https://quizania.vercel.app/");
   const createQuiz = () => {
     if (QuizName === "") {
       toast({

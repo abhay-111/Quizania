@@ -20,7 +20,9 @@ import OtpModal from "../modals/OtpModal";
 import UserEmailModal from "../modals/UserEmailModal";
 import ChangePassword from "../modals/ChangePassword";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const navigate = useNavigate();
   const toast = useToast();
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -55,6 +57,7 @@ export default function Login() {
           duration: 3000,
           isClosable: true,
         });
+        navigate("/dashboard");
       })
       .catch((err) => {
         toast({

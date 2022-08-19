@@ -7,6 +7,8 @@ import { signupUser } from "../../reducers/authReducers";
 import { unwrapResult } from "@reduxjs/toolkit";
 import cookie from "js-cookie";
 import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
 import {
   FormControl,
   FormLabel,
@@ -21,6 +23,8 @@ import {
 } from "@chakra-ui/react";
 export default function SignUp() {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const toast = useToast();
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
@@ -50,6 +54,7 @@ export default function SignUp() {
           duration: 3000,
           isClosable: true,
         });
+        navigate("/dashboard");
       })
       .catch((err) => {
         toast({
