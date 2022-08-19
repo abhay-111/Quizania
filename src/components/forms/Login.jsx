@@ -50,6 +50,7 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         Cookies.set("userToken", res.data.data);
+        Cookies.set("userId", res.data.userId);
         toast({
           title: "Logged in successfully",
           description: "Get ready to make quiz",

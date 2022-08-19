@@ -48,6 +48,17 @@ export const submitUserQuiz = createAsyncThunk(
     return data;
   }
 );
+export const getLatestLeaderboard = createAsyncThunk(
+  "quiz/getLatestLeaderboard",
+  async (payload) => {
+    const data = await axios({
+      url: `${BASE_URL}leaderboard/getLeaderBoard`,
+      method: "POST",
+      data: payload,
+    });
+    return data;
+  }
+);
 
 export const quizSlice = createSlice({
   name: "Quiz",

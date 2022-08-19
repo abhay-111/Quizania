@@ -11,46 +11,46 @@ import {
   TableContainer,
   Text,
 } from "@chakra-ui/react";
-export default function Leaderboard() {
+export default function Leaderboard({ leaderBoard }) {
   return (
-    <TableContainer maxH={"350px"} bg={"white"} borderRadius="2xl" p={"5"}>
+    <TableContainer h={"auto"} bg={"white"} borderRadius="2xl" p={"5"}>
       <Text ml="4" fontSize={"xl"} fontWeight="600">
         Leaderboard
       </Text>
-      <Table mt="3" variant="simple">
-        <TableCaption>Leaderboard for Maths Quiz</TableCaption>
-        <Thead>
+      {leaderBoard.length ? (
+        <Table mt="3" variant="simple">
+          <TableCaption>Leaderboard for Maths Quiz</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Username</Th>
+              <Th>Ranking</Th>
+              <Th isNumeric>Score</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {leaderBoard.map((participant, i) => {
+              return (
+                <Tr>
+                  <Td>{participant.username}</Td>
+                  <Td>{i + 1}</Td>
+                  <Td isNumeric>{participant.score}</Td>
+                </Tr>
+              );
+            })}
+          </Tbody>
+          {/* <Tfoot>
           <Tr>
             <Th>Username</Th>
             <Th>Ranking</Th>
             <Th isNumeric>Score</Th>
           </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td>Abhikant</Td>
-            <Td>1</Td>
-            <Td isNumeric>25.4</Td>
-          </Tr>
-          <Tr>
-            <Td>Abhay</Td>
-            <Td>2</Td>
-            <Td isNumeric>20.48</Td>
-          </Tr>
-          <Tr>
-            <Td>Akshat</Td>
-            <Td>3</Td>
-            <Td isNumeric>19.91444</Td>
-          </Tr>
-        </Tbody>
-        <Tfoot>
-          <Tr>
-            <Th>Username</Th>
-            <Th>Ranking</Th>
-            <Th isNumeric>Score</Th>
-          </Tr>
-        </Tfoot>
-      </Table>
+        </Tfoot> */}
+        </Table>
+      ) : (
+        <Text ml={"5"} fontSize={"2xl"} fontWeight="600">
+          No Participants uptill now
+        </Text>
+      )}
     </TableContainer>
   );
 }

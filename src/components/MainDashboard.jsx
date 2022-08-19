@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
 } from "@chakra-ui/react";
 import Leaderboard from "./dashboard/Leaderboard";
+import { useEffect, useState } from "react";
 import {
   PhoneIcon,
   HamburgerIcon,
@@ -15,8 +16,11 @@ import {
   LockIcon,
 } from "@chakra-ui/icons";
 import React from "react";
-
+import { useDispatch } from "react-redux";
+import { getLatestLeaderboard } from "../reducers/quizReducers";
+import Cookies from "js-cookie";
 export default function MainDashboard() {
+  const dispatch = useDispatch();
   const userData = [
     {
       pillTitle: "Username",
@@ -58,6 +62,17 @@ export default function MainDashboard() {
       icon: <LockIcon color={"#9a419a"} fontSize={"xl"}></LockIcon>,
     },
   ];
+  const [LeaderBoard, setLeaderBoard] = useState([]);
+  useEffect(() => {
+    const payload = {
+      userId: Cookies.get("userId"),
+    };
+    dispatch(getLatestLeaderboard(payload)).then((res) => {
+      setLeaderBoard(res.payload.data.data.leaderBoard);
+      console.log(LeaderBoard);
+    });
+  }, []);
+
   return (
     <Flex h={"100%"} gap="3" direction="column" w="100%">
       <Flex
@@ -71,7 +86,7 @@ export default function MainDashboard() {
           return <UserPill user={ele}></UserPill>;
         })}
       </Flex>
-      <Leaderboard></Leaderboard>
+      <Leaderboard leaderBoard={LeaderBoard}></Leaderboard>
     </Flex>
   );
 }

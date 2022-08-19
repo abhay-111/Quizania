@@ -50,7 +50,7 @@ export default function QuizMaker() {
     }
     const payload = {
       title: QuizName,
-      userId: Cookies.get("userToken"),
+      userId: Cookies.get("userId"),
     };
     dispatch(createUserQuiz(payload))
       .then(unwrapResult)
