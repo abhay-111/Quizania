@@ -47,8 +47,8 @@ export default function Leaderboard({ leaderBoard }) {
         </Tfoot> */}
         </Table>
       ) : (
-        <Text ml={"5"} fontSize={"2xl"} fontWeight="600">
-          No Participants uptill now
+        <Text ml={"5"} fontSize={{ lg: "lg", base: "sm" }} fontWeight="600">
+          No Participants uptill now.
         </Text>
       )}
     </TableContainer>

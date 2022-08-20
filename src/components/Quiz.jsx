@@ -43,7 +43,19 @@ export default function Quiz() {
     });
   }, []);
   const calculateScore = () => {
+    let noOfQuestion = quiz.questions.length;
     let count = 0;
+    quiz.questions.forEach((q) => {
+      q.option.forEach((option) => {
+        if (option.isSelected) {
+          count++;
+        }
+      });
+    });
+    if (noOfQuestion != count) {
+      return -1;
+    }
+    count = 0;
     quiz.questions.forEach((q) => {
       q.option.forEach((option) => {
         if (option.isSelected && option.isCorrect) {
@@ -55,6 +67,16 @@ export default function Quiz() {
   };
   const submitQuiz = () => {
     let score = calculateScore();
+    if (score == -1) {
+      toast({
+        title: "All Questions are not answered",
+        description: "Please make sure all questions are answered",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
     const payload = {
       score: score,
       username: participantData.name,

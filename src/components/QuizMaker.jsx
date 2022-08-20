@@ -6,6 +6,7 @@ import {
   VStack,
   Text,
   useToast,
+  HStack,
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
@@ -60,14 +61,6 @@ export default function QuizMaker() {
         setAddQuestion(false);
       });
   };
-
-  const generateLink = () => {
-    onOpen();
-    console.log(QuizId);
-    setquizUrl((prevState) => {
-      return prevState + "quiz/" + QuizId;
-    });
-  };
   return (
     <Box
       w={{ lg: "90%", base: "100%" }}
@@ -76,6 +69,7 @@ export default function QuizMaker() {
       mt={{ base: "50px", lg: "5px" }}
       borderRadius={"xl"}
       position="relative"
+      zIndex={"1"}
     >
       <Modal w={"30vw"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -83,8 +77,12 @@ export default function QuizMaker() {
           <ModalHeader>Your Quiz Link</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Link fontSize={"sm"} href={quizUrl}>
-              {quizUrl}
+            <Link
+              fontSize={"sm"}
+              target="_blank"
+              href={quizUrl + "quiz/" + QuizId}
+            >
+              {quizUrl + "quiz/" + QuizId}
             </Link>
           </ModalBody>
 
@@ -95,17 +93,6 @@ export default function QuizMaker() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <Button
-        disabled={QuestionList.length == 0}
-        position={"absolute"}
-        right="0"
-        top="-20%"
-        size={"sm"}
-        colorScheme="purple"
-        onClick={generateLink}
-      >
-        Publish
-      </Button>
       <VStack align={"start"} spacing="15px" mb={"5"}>
         <FormLabel>Enter your Quiz Name</FormLabel>
         <Input
@@ -113,14 +100,25 @@ export default function QuizMaker() {
           onChange={(e) => setQuizName(e.target.value)}
           w={{ base: "100%", lg: "60%" }}
         ></Input>
-        <Button
-          onClick={createQuiz}
-          colorScheme="purple"
-          fontSize={{ base: "xs", lg: "sm" }}
-          color={"white"}
-        >
-          Create Quiz
-        </Button>
+        <HStack>
+          <Button
+            disabled={quizCreated}
+            onClick={createQuiz}
+            colorScheme="purple"
+            fontSize={{ base: "xs", lg: "sm" }}
+            color={"white"}
+          >
+            Create Quiz
+          </Button>
+          <Button
+            disabled={QuestionList.length == 0}
+            colorScheme="green"
+            onClick={onOpen}
+            fontSize={{ base: "xs", lg: "sm" }}
+          >
+            Publish
+          </Button>
+        </HStack>
         {quizCreated ? (
           <Box w={"100%"}>
             {QuestionList.map((question) => {

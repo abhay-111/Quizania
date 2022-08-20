@@ -28,27 +28,45 @@ export default function SideDrawer({ setcurrentComponent }) {
     {
       linkName: "Create a new Quiz",
       isActive: true,
-      icon: <AddIcon fontSize={"xl"} color={"purple.600"}></AddIcon>,
+      icon: (
+        <AddIcon
+          fontSize={{ lg: "xl", base: "md" }}
+          color={"purple.600"}
+        ></AddIcon>
+      ),
       component: <QuizMaker></QuizMaker>,
     },
     {
       linkName: "Main Dashboard",
       isActive: true,
       icon: (
-        <HamburgerIcon fontSize={"xl"} color={"purple.600"}></HamburgerIcon>
+        <HamburgerIcon
+          fontSize={{ lg: "xl", base: "md" }}
+          color={"purple.600"}
+        ></HamburgerIcon>
       ),
       component: <MainDashboard></MainDashboard>,
     },
     {
       linkName: "Profile",
       isActive: false,
-      icon: <AtSignIcon fontSize={"xl"} color={"purple.600"}></AtSignIcon>,
+      icon: (
+        <AtSignIcon
+          fontSize={{ lg: "xl", base: "md" }}
+          color={"purple.600"}
+        ></AtSignIcon>
+      ),
       component: <Profile></Profile>,
     },
     {
       linkName: "Create a Quiz",
       isActive: false,
-      icon: <PhoneIcon fontSize={"xl"} color={"purple.600"}></PhoneIcon>,
+      icon: (
+        <PhoneIcon
+          fontSize={{ lg: "xl", base: "md" }}
+          color={"purple.600"}
+        ></PhoneIcon>
+      ),
       component: <Profile></Profile>,
     },
   ]);
@@ -94,11 +112,12 @@ export default function SideDrawer({ setcurrentComponent }) {
         opacity={"0.7"}
         colorScheme="purple"
         borderRadius={"0px 10px 10px 0px"}
+        zIndex="10"
       >
         <HamburgerIcon></HamburgerIcon>
       </Button>
       <Box
-        zIndex={"1"}
+        zIndex={"100"}
         ref={drawerRef}
         display={{ lg: "block", base: "none" }}
         position={"fixed"}
@@ -142,13 +161,13 @@ export default function SideDrawer({ setcurrentComponent }) {
                 <ListItem
                   bg={"purple.600"}
                   borderRadius="xl"
-                  p="3"
+                  p={{ lg: "3", base: "2" }}
                   cursor={"pointer"}
                   onClick={() => setActive(idx)}
                 >
                   <Flex gap={"5"} alignItems={"center"}>
                     <AddIcon
-                      fontSize={{ lg: "md", base: "sm" }}
+                      fontSize={{ lg: "md", base: "xs" }}
                       color={"white"}
                     ></AddIcon>
                     <Text

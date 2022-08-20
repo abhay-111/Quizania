@@ -90,11 +90,12 @@ export default function CreateQuestion({
       return;
     }
     let isCorrectCount = 0;
+    var hasError = false;
     Question.option.forEach((option) => {
       if (option.isCorrect) {
         isCorrectCount++;
       }
-      if (option.title == "") {
+      if (option.title === "") {
         toast({
           title: "Option Title is empty.",
           description: "Option Title is required.",
@@ -102,9 +103,13 @@ export default function CreateQuestion({
           duration: 3000,
           isClosable: true,
         });
-        return;
+        console.log("afa");
+        hasError = true;
       }
     });
+    if (hasError) {
+      return;
+    }
     if (isCorrectCount > 1) {
       toast({
         title: "Question has more than one correct answer.",
@@ -148,7 +153,9 @@ export default function CreateQuestion({
         gap="8"
       >
         <Box>
-          <FormLabel>Enter your question title</FormLabel>
+          <FormLabel fontSize={{ base: "sm", lg: "md" }}>
+            Enter your question title
+          </FormLabel>
           <Input
             w={{ lg: "60%", base: "100%" }}
             onChange={changeQuestionTitle}
@@ -163,7 +170,9 @@ export default function CreateQuestion({
           {Question.option.map((option, idx) => {
             return (
               <Box width={{ lg: "45%", base: "100%" }}>
-                <FormLabel>Enter your option {idx + 1}</FormLabel>
+                <FormLabel fontSize={{ base: "sm", lg: "md" }}>
+                  Enter your option {idx + 1}
+                </FormLabel>
                 <Input
                   onChange={(event) => changeOptionTitle(event, idx)}
                 ></Input>
@@ -171,7 +180,9 @@ export default function CreateQuestion({
                   mt="3"
                   onChange={(event) => changeOptionStatus(event, idx)}
                 >
-                  Correct Answer
+                  <Text fontSize={{ base: "sm", lg: "md" }}>
+                    Correct Answer
+                  </Text>
                 </Checkbox>
               </Box>
             );
