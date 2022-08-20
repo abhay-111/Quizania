@@ -54,7 +54,7 @@ export default function Dashboard() {
         left={{ base: "0", lg: "20vw" }}
         w={"80vw"}
       >
-        <Box h={"100%"} p={{ lg: 10, base: 4 }}>
+        <Box h={"100%"} p={{ lg: 10, base: 0 }}>
           <Breadcrumb display={{ base: "none", lg: "block" }}>
             <BreadcrumbItem>
               <BreadcrumbLink href="#">Home</BreadcrumbLink>

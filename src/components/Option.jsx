@@ -20,7 +20,7 @@ export default function Option({ option, questionIndex, idx }) {
       onClick={changeSelection}
       alignItems={"center"}
       justifyContent="space-between"
-      w={{ base: "45%", lg: "49%" }}
+      w={{ base: "100%", md: "49%" }}
       boxShadow="lg"
       borderRadius={"md"}
       p={"4"}

@@ -29,7 +29,7 @@ export default function UserPill({ user, icon }) {
           <Text fontSize={"xs"} fontWeight="500">
             {user.pillTitle}
           </Text>
-          <Text fontSize={{ base: "sm", lg: "xl" }} fontWeight="600">
+          <Text fontSize={{ base: "xs", lg: "lg" }} fontWeight="600">
             {user.pillValue}
           </Text>
         </Box>

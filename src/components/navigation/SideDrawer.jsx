@@ -101,7 +101,7 @@ export default function SideDrawer({ setcurrentComponent }) {
         zIndex={"1"}
         ref={drawerRef}
         display={{ lg: "block", base: "none" }}
-        position={{ lg: "fixed", base: "absolute" }}
+        position={"fixed"}
         left={{ base: "0", lg: "" }}
         w={{ lg: "20vw", base: "60vw" }}
         h="100vh"

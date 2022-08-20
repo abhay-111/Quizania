@@ -7,13 +7,19 @@ export default function CreatedQuestion({ question, index }) {
   const [Options, setOptions] = useState(question.option);
   return (
     <Box mt="5" px={{ base: "0", lg: "20" }} overflow={"hidden"}>
-      <Text fontWeight="600" fontSize={"lg"}>
+      <Text fontWeight="600" fontSize={{ lg: "lg", base: "md" }}>
         Question : {question.title} ?.
       </Text>
-      <Text fontWeight="600" fontSize={"md"} mt="3">
-        Answers
+      <Text fontWeight="600" fontSize={{ lg: "md", base: "sm" }} mt="3">
+        Options
       </Text>
-      <Flex mb={"10"} mt={"3"} flexWrap={"wrap"} columnGap="3" rowGap={"3"}>
+      <Flex
+        mt={"3"}
+        flexDirection={{ base: "column", md: "row" }}
+        flexWrap={"wrap"}
+        columnGap="3"
+        rowGap={"3"}
+      >
         {question.option.map((option, idx) => {
           return (
             <Option option={option} idx={idx} questionIndex={index}></Option>

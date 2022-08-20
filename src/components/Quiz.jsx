@@ -61,7 +61,7 @@ export default function Quiz() {
       quizId: id,
     };
     dispatch(submitUserQuiz(payload)).then((res) => {
-      navigate("/");
+      navigate("/dashboard");
     });
   };
   const handleChange = (e) => {
@@ -86,10 +86,12 @@ export default function Quiz() {
   };
 
   return (
-    <Box p={{ base: "5", lg: "20" }} w={"100%"}>
+    <Box p={{ base: "15", lg: "20" }} w={"100%"}>
       {!Loading ? (
         <Box borderRadius="lg" bg={"white"} p={"5"}>
-          <Text fontSize={"2xl"} fontWeight="xl" align={"center"}></Text>
+          <Text fontSize={"2xl"} fontWeight="700" align={"center"}>
+            {quiz.quizName}
+          </Text>
           <Flex direction="column" alignItems="center">
             {quiz.questions ? (
               <Box w={"100%"}>
@@ -107,6 +109,7 @@ export default function Quiz() {
               align="center"
               colorScheme="green"
               w={"90%"}
+              mt="20"
             >
               Submit Quiz
             </Button>

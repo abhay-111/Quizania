@@ -10,7 +10,13 @@ export default function CreatedQuestion({ question }) {
       <Text fontWeight="600" fontSize={"md"} mt="3">
         Answers
       </Text>
-      <Flex mt={"3"} flexWrap={"wrap"} columnGap="3" rowGap={"3"}>
+      <Flex
+        marginBottom={"15"}
+        mt={"3"}
+        flexWrap={"wrap"}
+        columnGap="3"
+        rowGap={"3"}
+      >
         {question.option.map((option, idx) => {
           return (
             <Flex
@@ -19,6 +25,9 @@ export default function CreatedQuestion({ question }) {
               w={"45%"}
               boxShadow="lg"
               p={"4"}
+              color="white"
+              borderRadius={"md"}
+              bg={option.isCorrect ? "green.500" : "red.500"}
             >
               <Text fontSize="md" fontWeight={"600"}>
                 {idx + 1} : {option.title}

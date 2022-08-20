@@ -116,7 +116,7 @@ export default function QuizMaker() {
         <Button
           onClick={createQuiz}
           colorScheme="purple"
-          fontSize={{ base: "xs", lg: "lg" }}
+          fontSize={{ base: "xs", lg: "sm" }}
           color={"white"}
         >
           Create Quiz
