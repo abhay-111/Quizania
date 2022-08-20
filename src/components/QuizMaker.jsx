@@ -98,8 +98,8 @@ export default function QuizMaker() {
       <Button
         disabled={QuestionList.length == 0}
         position={"absolute"}
-        right="10"
-        top="5"
+        right="0"
+        top="-20%"
         size={"sm"}
         colorScheme="purple"
         onClick={generateLink}
