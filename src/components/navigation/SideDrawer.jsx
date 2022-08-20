@@ -90,7 +90,7 @@ export default function SideDrawer({ setcurrentComponent }) {
         display={{ base: "block", lg: "none" }}
         position="fixed"
         left="0"
-        top="40%"
+        top="2%"
         opacity={"0.7"}
         colorScheme="purple"
         borderRadius={"0px 10px 10px 0px"}
