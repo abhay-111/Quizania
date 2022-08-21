@@ -20,7 +20,7 @@ import {
   SmallCloseIcon,
 } from "@chakra-ui/icons";
 import logo from "../../assets/logo.png";
-import Profile from "../dashboard/Profile";
+import MainProfile from "../profile/MainProfile";
 import MainDashboard from "../MainDashboard";
 import QuizMaker from "../QuizMaker";
 export default function SideDrawer({ setcurrentComponent }) {
@@ -56,18 +56,7 @@ export default function SideDrawer({ setcurrentComponent }) {
           color={"purple.600"}
         ></AtSignIcon>
       ),
-      component: <Profile></Profile>,
-    },
-    {
-      linkName: "Create a Quiz",
-      isActive: false,
-      icon: (
-        <PhoneIcon
-          fontSize={{ lg: "xl", base: "md" }}
-          color={"purple.600"}
-        ></PhoneIcon>
-      ),
-      component: <Profile></Profile>,
+      component: <MainProfile></MainProfile>,
     },
   ]);
   const setActive = (idx) => {
@@ -122,7 +111,7 @@ export default function SideDrawer({ setcurrentComponent }) {
         display={{ lg: "block", base: "none" }}
         position={"fixed"}
         left={{ base: "0", lg: "" }}
-        w={{ lg: "20vw", base: "60vw" }}
+        w={{ lg: "20vw", base: "60vw", sm: "40vw" }}
         h="100vh"
         bg={"white"}
       >

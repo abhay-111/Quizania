@@ -1,4 +1,4 @@
-import { Flex, Box, Container, Text } from "@chakra-ui/react";
+import { Flex, Box, Container, Text, Spinner } from "@chakra-ui/react";
 import UserPill from "./dashboard/UserPill";
 import {
   Breadcrumb,
@@ -16,9 +16,11 @@ import {
   LockIcon,
 } from "@chakra-ui/icons";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getLatestLeaderboard } from "../reducers/quizReducers";
 import Cookies from "js-cookie";
+import { getAllQuiz } from "../reducers/profileReducers";
+import { unwrapResult } from "@reduxjs/toolkit";
 export default function MainDashboard() {
   const dispatch = useDispatch();
   const userData = [
@@ -63,18 +65,55 @@ export default function MainDashboard() {
     },
   ];
   const [LeaderBoard, setLeaderBoard] = useState([]);
+  const [isLoading, setisLoading] = useState(false);
+  const quizzes = useSelector((state) => state.profile.allQuiz);
   useEffect(() => {
     const payload = {
       userId: Cookies.get("userId"),
     };
-    dispatch(getLatestLeaderboard(payload)).then((res) => {
-      setLeaderBoard(res.payload.data.data.leaderBoard);
-      console.log(LeaderBoard);
-    });
+    if (quizzes.length === 0) {
+      setisLoading(true);
+      dispatch(getAllQuiz(payload))
+        .then(unwrapResult)
+        .then((res) => {
+          setLeaderBoard(res.data.UserData[0].leaderBoard);
+          // console.log(res);
+
+          setisLoading(false);
+        });
+    }
   }, []);
 
   return (
     <Flex h={"100%"} gap="3" direction="column" w="100%">
+      <Flex
+        display={isLoading ? "flex" : "none"}
+        w={"100vw"}
+        h={"100vh"}
+        bg={"purple.600"}
+        position="fixed"
+        top={"0"}
+        left="0"
+        justifyContent={"center"}
+        alignItems="center"
+        zIndex={"10000"}
+        flexDirection="column"
+        gap="3"
+      >
+        <Spinner
+          size={"xl"}
+          thickness="6px"
+          speed="0.7s"
+          color="white"
+        ></Spinner>
+        <Text
+          fontSize={{ lg: "xl", base: "md" }}
+          color="white"
+          fontWeight={"600"}
+        >
+          Loading your Quizzes....
+        </Text>
+      </Flex>
       <Flex
         w={"100%"}
         justifyContent="space-between"
@@ -86,7 +125,7 @@ export default function MainDashboard() {
           return <UserPill user={ele}></UserPill>;
         })}
       </Flex>
-      <Leaderboard leaderBoard={LeaderBoard}></Leaderboard>
+      <Leaderboard leaderBoard={LeaderBoard} quizName={"Maths"}></Leaderboard>
     </Flex>
   );
 }
