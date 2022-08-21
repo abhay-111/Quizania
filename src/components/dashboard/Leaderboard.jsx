@@ -10,7 +10,10 @@ import {
   TableCaption,
   TableContainer,
   Text,
+  Flex,
+  Image,
 } from "@chakra-ui/react";
+import noContent from "../../assets/noContent.jpg";
 export default function Leaderboard({ leaderBoard, quizName }) {
   return (
     <TableContainer h={"auto"} bg={"white"} borderRadius="2xl" p={"5"}>
@@ -55,9 +58,18 @@ export default function Leaderboard({ leaderBoard, quizName }) {
         </Tfoot> */}
         </Table>
       ) : (
-        <Text ml={"5"} fontSize={{ lg: "lg", base: "sm" }} fontWeight="600">
-          No Participants uptill now.
-        </Text>
+        <Flex
+          w={"100%"}
+          justifyContent="center"
+          alignItems={"center"}
+          flexDirection="column"
+          gap="3"
+        >
+          <Image h={"250px"} width="250px" src={noContent}></Image>
+          <Text ml={"5"} fontSize={{ lg: "lg", base: "sm" }} fontWeight="600">
+            No Participants uptill now.
+          </Text>
+        </Flex>
       )}
     </TableContainer>
   );

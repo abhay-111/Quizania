@@ -202,10 +202,10 @@ export default function SideDrawer({ setcurrentComponent }) {
                   bottom={"5"}
                 >
                   <Flex gap={"5"} alignItems={"center"}>
-                    <CloseIcon fontSize={{ lg: "md", base: "xs" }}></CloseIcon>
+                    <CloseIcon fontSize={{ lg: "sm", base: "xs" }}></CloseIcon>
                     <Text
                       fontSize={{ base: "sm", lg: "md" }}
-                      fontWeight={"700"}
+                      fontWeight={"600"}
                     >
                       Logout
                     </Text>
