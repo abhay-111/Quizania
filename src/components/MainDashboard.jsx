@@ -23,6 +23,7 @@ import { getAllQuiz } from "../reducers/profileReducers";
 import { unwrapResult } from "@reduxjs/toolkit";
 export default function MainDashboard() {
   const dispatch = useDispatch();
+  const quizzes = useSelector((state) => state.profile.allQuiz);
   const userData = [
     {
       pillTitle: "Username",
@@ -36,14 +37,14 @@ export default function MainDashboard() {
     },
     {
       pillTitle: "Running Quizzes",
-      pillValue: "13",
+      pillValue: quizzes.length,
       icon: (
         <RepeatClockIcon color={"#9a419a"} fontSize={"xl"}></RepeatClockIcon>
       ),
     },
     {
       pillTitle: "Total Quizzes",
-      pillValue: "37",
+      pillValue: quizzes.length,
       icon: <LockIcon color={"#9a419a"} fontSize={"xl"}></LockIcon>,
     },
     {
@@ -53,20 +54,19 @@ export default function MainDashboard() {
     },
     {
       pillTitle: "Running Quizzes",
-      pillValue: "13",
+      pillValue: quizzes.length,
       icon: (
         <RepeatClockIcon color={"#9a419a"} fontSize={"xl"}></RepeatClockIcon>
       ),
     },
     {
       pillTitle: "Total Quizzes",
-      pillValue: "37",
+      pillValue: quizzes.length,
       icon: <LockIcon color={"#9a419a"} fontSize={"xl"}></LockIcon>,
     },
   ];
   const [LeaderBoard, setLeaderBoard] = useState([]);
   const [isLoading, setisLoading] = useState(false);
-  const quizzes = useSelector((state) => state.profile.allQuiz);
   useEffect(() => {
     const payload = {
       userId: Cookies.get("userId"),
@@ -77,10 +77,10 @@ export default function MainDashboard() {
         .then(unwrapResult)
         .then((res) => {
           setLeaderBoard(res.data.UserData[0].leaderBoard);
-          // console.log(res);
-
           setisLoading(false);
         });
+    } else {
+      setLeaderBoard(quizzes[0].leaderBoard);
     }
   }, []);
 

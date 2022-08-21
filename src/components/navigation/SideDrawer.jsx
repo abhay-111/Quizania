@@ -18,11 +18,14 @@ import {
   AddIcon,
   CloseIcon,
   SmallCloseIcon,
+  ArrowBackIcon,
 } from "@chakra-ui/icons";
 import logo from "../../assets/logo.png";
 import MainProfile from "../profile/MainProfile";
 import MainDashboard from "../MainDashboard";
 import QuizMaker from "../QuizMaker";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export default function SideDrawer({ setcurrentComponent }) {
   const [navigationList, setnavigationList] = useState([
     {
@@ -49,6 +52,17 @@ export default function SideDrawer({ setcurrentComponent }) {
     },
     {
       linkName: "Profile",
+      isActive: false,
+      icon: (
+        <AtSignIcon
+          fontSize={{ lg: "xl", base: "md" }}
+          color={"purple.600"}
+        ></AtSignIcon>
+      ),
+      component: <MainProfile></MainProfile>,
+    },
+    {
+      linkName: "Logout",
       isActive: false,
       icon: (
         <AtSignIcon
@@ -88,6 +102,14 @@ export default function SideDrawer({ setcurrentComponent }) {
     } else {
       drawerRef.current.style.display = "block";
     }
+  };
+  const navigate = useNavigate();
+  const logoutUser = () => {
+    Object.keys(Cookies.get()).forEach(function (cookieName) {
+      Cookies.remove(cookieName);
+    });
+
+    navigate("/");
   };
   return (
     <>
@@ -165,6 +187,27 @@ export default function SideDrawer({ setcurrentComponent }) {
                       color="white"
                     >
                       Create a Quiz
+                    </Text>
+                  </Flex>
+                </ListItem>
+              );
+            }
+            if (idx == navigationList.length - 1) {
+              return (
+                <ListItem
+                  p={{ lg: "3", base: "2" }}
+                  cursor={"pointer"}
+                  onClick={logoutUser}
+                  position="absolute"
+                  bottom={"5"}
+                >
+                  <Flex gap={"5"} alignItems={"center"}>
+                    <CloseIcon fontSize={{ lg: "md", base: "xs" }}></CloseIcon>
+                    <Text
+                      fontSize={{ base: "sm", lg: "md" }}
+                      fontWeight={"700"}
+                    >
+                      Logout
                     </Text>
                   </Flex>
                 </ListItem>
