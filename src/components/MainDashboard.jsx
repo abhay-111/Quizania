@@ -24,6 +24,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 export default function MainDashboard() {
   const dispatch = useDispatch();
   const quizzes = useSelector((state) => state.profile.allQuiz);
+  const isLoaded = useSelector((state) => state.profile.isLoaded);
   const userData = [
     {
       pillTitle: "Username",
@@ -71,12 +72,14 @@ export default function MainDashboard() {
     const payload = {
       userId: Cookies.get("userId"),
     };
-    if (quizzes.length === 0) {
+    if (!isLoaded) {
       setisLoading(true);
       dispatch(getAllQuiz(payload))
         .then(unwrapResult)
         .then((res) => {
-          setLeaderBoard(res.data.UserData[0].leaderBoard);
+          if (res.data.UserData.length) {
+            setLeaderBoard(res.data.UserData[0].leaderBoard);
+          }
           setisLoading(false);
         });
     } else {

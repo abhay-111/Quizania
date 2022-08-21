@@ -19,7 +19,8 @@ export default function MainProfile() {
       <Flex
         w={"100%"}
         p="5"
-        justifyContent={"center"}
+        justifyContent={"flex-start"}
+        alignItems="center"
         minH={"50vh"}
         bg="white"
         borderRadius={"xl"}
@@ -27,7 +28,7 @@ export default function MainProfile() {
         gap={"5"}
       >
         {quizzes.length ? (
-          <Box>
+          <Box w={"100%"}>
             <Select onChange={(e) => setselectedIndex(e.target.value)}>
               {quizzes.map((quiz, i) => {
                 return (
@@ -43,7 +44,9 @@ export default function MainProfile() {
             ></Leaderboard>
           </Box>
         ) : (
-          ""
+          <Box>
+            <Text>No Qizzes Available.</Text>
+          </Box>
         )}
       </Flex>
     </Box>

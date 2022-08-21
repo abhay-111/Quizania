@@ -18,11 +18,13 @@ export const profileSlice = createSlice({
   name: "Profile",
   initialState: {
     allQuiz: [],
+    isLoaded: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAllQuiz.fulfilled, (state, action) => {
       state.allQuiz = action.payload.data.UserData;
+      state.isLoaded = true;
       console.log(state.allQuiz);
     });
   },
