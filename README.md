@@ -26,7 +26,6 @@
 
 * ### Landing Page ### 
 <p align="center">
-  <img src="quizaniaImages/login.PNG">
   <h5>Landing Page</h5>
   <img src="quizaniaImages/signup.PNG">
 </p>
@@ -34,6 +33,11 @@
 * ### Login ###
 <p align="center">
   <img src="quizaniaImages/login.PNG">
+</p>
+
+* ### Signup ###
+<p align="center">
+  <img src="quizaniaImages/signup.PNG">
 </p>
 
 * ### Forgot Password ###
@@ -73,10 +77,10 @@
 
  ### Quiz Applicant ### 
 <p align="center">
-  <img src="quizaniaImages/quiztaker1.PNG">
+  <img src="quizaniaImages/Quiztaker1.PNG">
 </p>
 <p align="center">
-  <img src="quizaniaImages/quiztaker2.PNG">
+  <img src="quizaniaImages/Quiztaker2.PNG">
 </p>
 <p align="center">
   <img src="quizaniaImages/quiztaker3.PNG">
