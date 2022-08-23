@@ -40,21 +40,29 @@
   <img src="quizaniaImages/signup.PNG">
 </p>
 
-* ### Forgot Password ###
+ ### Forgot Password Screens ###
+
+
+* ### Enter email to get OTP ###
 <p align="center">
-  <img src="quizaniaImages/forgotpassword.PNG">
+  <img src="quizaniaImages/entermail.PNG">
 </p>
+
 
 * ### OTP Verification ###
 <p align="center">
-  <img src="quizaniaImages/otpVerification.PNG">
+  <img src="quizaniaImages/verify.PNG">
+</p>
+* ### Change Password ###
+<p align="center">
+  <img src="quizaniaImages/changepass.PNG">
 </p>
 
 ## Screens for Dashboard
 
-* ### Main Dashboard ### 
+*### Main Dashboard ### 
 <p align="center">
-  <img src="quizanaImages/dashboard.PNG">
+  <img src="quizaniaImages/dashboard.PNG">
 </p>
 <p align="center">
   <img src="quizaniaImages/maindashboard.PNG">
