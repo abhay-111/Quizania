@@ -52,22 +52,26 @@ export default function Dashboard(props) {
         w={"80vw"}
       >
         <Box h={"100%"} p={{ lg: 10, base: 0 }}>
-          <Breadcrumb display={{ base: "none", lg: "block" }}>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Home</BreadcrumbLink>
-            </BreadcrumbItem>
+          <Box mt={{ base: "20", lg: "10" }}>
+            <Breadcrumb display={{ base: "block", lg: "block" }}>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#">Home</BreadcrumbLink>
+              </BreadcrumbItem>
 
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Main Dashboard</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          <Text
-            display={{ base: "none", lg: "block" }}
-            fontSize={{ base: "lg", md: "xl", lg: "3xl" }}
-            fontWeight={"700"}
-          >
-            Main Dashboard
-          </Text>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#">
+                  {props.breadcrumbLabel}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+            <Text
+              display={{ base: "block", lg: "block" }}
+              fontSize={{ base: "lg", md: "xl", lg: "3xl" }}
+              fontWeight={"700"}
+            >
+              {props.breadcrumbLabel}
+            </Text>
+          </Box>
           <Box mt={"20px"} mb={"50px"}>
             {props.main}
           </Box>

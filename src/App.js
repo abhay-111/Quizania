@@ -17,6 +17,7 @@ function App() {
           path="/dashboard"
           element={
             <Dashboard
+              breadcrumbLabel="Main Dashboard"
               nav={<SideDrawer></SideDrawer>}
               main={<MainDashboard></MainDashboard>}
             />
@@ -26,6 +27,7 @@ function App() {
           path="/profile"
           element={
             <Dashboard
+              breadcrumbLabel="Profile"
               nav={<SideDrawer></SideDrawer>}
               main={<MainProfile></MainProfile>}
             />
@@ -35,6 +37,7 @@ function App() {
           path="/createQuiz"
           element={
             <Dashboard
+              breadcrumbLabel="Create Quiz"
               nav={<SideDrawer></SideDrawer>}
               main={<QuizMaker></QuizMaker>}
             />
