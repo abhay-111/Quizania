@@ -1,3 +1,87 @@
+# Quizania 
+
+<p float="left">
+  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" height="28" width="100" />
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" height="28" width="100" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" height="28" width="100" />
+  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" height="28" width="100" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="28" width="100" />
+</p>
+
+<br/>
+<p align="center">
+  <img src="quizanaImages/login.PNG">
+  <img src="Project_snapshots/signup.PNG">
+</p>
+<b>
+ Quizania provides a platform for teachers to create quiz for their classroom effectively and monitor the responses of the participants.
+  It provides a dedicated leaderboard for all the quizzes created to easily determine and analyze the performance of each and every individual.
+  <br/>
+  Link : [https://wsafe-frontend.vercel.app/](https://quizania.vercel.app/)
+  <br/> 
+</b>
+
+
+## Screens for Authentication
+
+* ### Landing Page ### 
+<p align="center">
+  <img src="quizanaImages/login.PNG">
+  <h5>Landing Page</h5>
+  <img src="quizanaImages/signup.PNG">
+</p>
+
+* ### Login ###
+<p align="center">
+  <img src="quizanaImages/login.PNG">
+</p>
+
+* ### Forgot Password ###
+<p align="center">
+  <img src="quizanaImages/forgotpassword.PNG">
+</p>
+
+* ### OTP Verification ###
+<p align="center">
+  <img src="quizanaImages/otpVerification.PNG">
+</p>
+
+## Screens for Dashboard
+
+* ### Main Dashboard ### 
+<p align="center">
+  <img src="quizanaImages/dashboard.PNG">
+</p>
+<p align="center">
+  <img src="quizanaImages/maindashboard.PNG">
+</p>
+### Profile ###
+<p align="center">
+  <img src="quizanaImages/profile.PNG">
+</p>
+
+### Quiz Maker ### 
+<p align="center">
+  <img src="quizanaImages/Quiz1.PNG">
+</p>
+<p align="center">
+  <img src="quizanaImages/Quiz2.PNG">
+</p>
+<p align="center">
+  <img src="quizanaImages/Quiz3.PNG">
+</p>
+
+ ### Quiz Applicant ### 
+<p align="center">
+  <img src="quizanaImages/quiztaker1.PNG">
+</p>
+<p align="center">
+  <img src="quizanaImages/quiztaker2.PNG">
+</p>
+<p align="center">
+  <img src="quizanaImages/quiztaker3.PNG">
+</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
