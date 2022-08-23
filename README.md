@@ -17,7 +17,7 @@
  Quizania provides a platform for teachers to create quiz for their classroom effectively and monitor the responses of the participants.
   It provides a dedicated leaderboard for all the quizzes created to easily determine and analyze the performance of each and every individual.
   <br/>
-  Link : [https://wsafe-frontend.vercel.app/](https://quizania.vercel.app/)
+  Link : [https://quizania.vercel.app/]
   <br/> 
 </b>
 
@@ -26,9 +26,9 @@
 
 * ### Landing Page ### 
 <p align="center">
-  <img src="quizanaImages/login.PNG">
+  <img src="quizaniaImages/login.PNG">
   <h5>Landing Page</h5>
-  <img src="quizanaImages/signup.PNG">
+  <img src="quizaniaImages/signup.PNG">
 </p>
 
 * ### Login ###
