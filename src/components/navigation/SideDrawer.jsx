@@ -30,6 +30,7 @@ export default function SideDrawer({ setcurrentComponent }) {
   const [navigationList, setnavigationList] = useState([
     {
       linkName: "Create a new Quiz",
+      route: "createQuiz",
       isActive: true,
       icon: (
         <AddIcon
@@ -42,6 +43,7 @@ export default function SideDrawer({ setcurrentComponent }) {
     {
       linkName: "Main Dashboard",
       isActive: true,
+      route: "dashboard",
       icon: (
         <HamburgerIcon
           fontSize={{ lg: "xl", base: "md" }}
@@ -53,6 +55,7 @@ export default function SideDrawer({ setcurrentComponent }) {
     {
       linkName: "Profile",
       isActive: false,
+      route: "profile",
       icon: (
         <AtSignIcon
           fontSize={{ lg: "xl", base: "md" }}
@@ -73,13 +76,14 @@ export default function SideDrawer({ setcurrentComponent }) {
       component: <MainProfile></MainProfile>,
     },
   ]);
-  const setActive = (idx) => {
+  const setActive = (route, idx) => {
     let newData = navigationList.map((link, i) => {
       if (i == idx) {
         return {
           linkName: link.linkName,
           icon: link.icon,
           isActive: true,
+          route: link.route,
           component: link.component,
         };
       } else {
@@ -87,12 +91,13 @@ export default function SideDrawer({ setcurrentComponent }) {
           linkName: link.linkName,
           icon: link.icon,
           isActive: false,
+          route: link.route,
           component: link.component,
         };
       }
     });
-    setcurrentComponent(navigationList[idx].component);
     setnavigationList(newData);
+    navigate("/" + route);
   };
 
   const drawerRef = useRef();
@@ -174,7 +179,7 @@ export default function SideDrawer({ setcurrentComponent }) {
                   borderRadius="xl"
                   p={{ lg: "3", base: "2" }}
                   cursor={"pointer"}
-                  onClick={() => setActive(idx)}
+                  onClick={() => setActive(link.route, idx)}
                 >
                   <Flex gap={"5"} alignItems={"center"}>
                     <AddIcon
@@ -216,7 +221,7 @@ export default function SideDrawer({ setcurrentComponent }) {
             return (
               <ListItem
                 key={idx}
-                onClick={() => setActive(idx)}
+                onClick={() => setActive(link.route, idx)}
                 borderRight={
                   link.isActive
                     ? "3px solid var(--chakra-colors-purple-600)"

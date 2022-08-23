@@ -169,7 +169,7 @@ export default function CreateQuestion({
         >
           {Question.option.map((option, idx) => {
             return (
-              <Box width={{ lg: "45%", base: "100%" }}>
+              <Box key={idx} width={{ lg: "45%", base: "100%" }}>
                 <FormLabel fontSize={{ base: "sm", lg: "md" }}>
                   Enter your option {idx + 1}
                 </FormLabel>

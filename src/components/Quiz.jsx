@@ -119,7 +119,11 @@ export default function Quiz() {
               <Box w={"100%"}>
                 {quiz.questions.map((question, index) => {
                   return (
-                    <Question index={index} question={question}></Question>
+                    <Question
+                      key={index}
+                      index={index}
+                      question={question}
+                    ></Question>
                   );
                 })}
               </Box>

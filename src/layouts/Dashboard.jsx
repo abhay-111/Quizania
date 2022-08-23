@@ -19,7 +19,7 @@ import {
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import MainDashboard from "../components/MainDashboard";
-export default function Dashboard() {
+export default function Dashboard(props) {
   const navigate = useNavigate();
   useEffect(() => {
     if (!Cookies.get("userToken")) {
@@ -44,10 +44,7 @@ export default function Dashboard() {
       justifyContent={{ base: "center", lg: "inherit" }}
       h="100%"
     >
-      <SideDrawer
-        display="none"
-        setcurrentComponent={setcurrentComponent}
-      ></SideDrawer>
+      {props.nav}
       <Box
         h={"auto"}
         position={{ lg: "absolute", base: "static" }}
@@ -72,7 +69,7 @@ export default function Dashboard() {
             Main Dashboard
           </Text>
           <Box mt={"20px"} mb={"50px"}>
-            {currentComponent}
+            {props.main}
           </Box>
         </Box>
       </Box>

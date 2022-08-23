@@ -121,9 +121,12 @@ export default function QuizMaker() {
         </HStack>
         {quizCreated ? (
           <Box w={"100%"}>
-            {QuestionList.map((question) => {
+            {QuestionList.map((question, idx) => {
               return (
-                <CreatedQuestion question={question.Question}></CreatedQuestion>
+                <CreatedQuestion
+                  key={idx}
+                  question={question.Question}
+                ></CreatedQuestion>
               );
             })}
             {AddQuestion ? (

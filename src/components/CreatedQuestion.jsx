@@ -29,6 +29,7 @@ export default function CreatedQuestion({ question }) {
               color="white"
               borderRadius={"md"}
               bg={option.isCorrect ? "green.500" : "red.500"}
+              key={idx}
             >
               <Text fontSize="md" fontWeight={"600"}>
                 {idx + 1} : {option.title}

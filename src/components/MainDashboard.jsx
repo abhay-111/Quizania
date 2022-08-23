@@ -124,8 +124,8 @@ export default function MainDashboard() {
         flexWrap={"wrap"}
         gap={"5"}
       >
-        {userData.map((ele) => {
-          return <UserPill user={ele}></UserPill>;
+        {userData.map((ele, idx) => {
+          return <UserPill key={idx} user={ele}></UserPill>;
         })}
       </Flex>
       <Leaderboard leaderBoard={LeaderBoard} quizName={"Maths"}></Leaderboard>

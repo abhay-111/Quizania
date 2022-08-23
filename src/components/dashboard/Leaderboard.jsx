@@ -37,7 +37,7 @@ export default function Leaderboard({ leaderBoard, quizName }) {
           <Tbody>
             {leaderBoard.map((participant, i) => {
               return (
-                <Tr>
+                <Tr key={i}>
                   <Td fontSize={{ lg: "md", base: "sm" }}>
                     {participant.username}
                   </Td>

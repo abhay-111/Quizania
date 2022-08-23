@@ -50,7 +50,7 @@ export default function MainProfile() {
               })}
             </Select>
             <Button size={"sm"} mt="4" colorScheme="purple" onClick={copyLink}>
-              Copy Publishable Link
+              Copy Quiz Link
             </Button>
             <Leaderboard
               leaderBoard={quizzes[selectedIndex].leaderBoard}
