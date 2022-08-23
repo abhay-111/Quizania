@@ -33,17 +33,17 @@
 
 * ### Login ###
 <p align="center">
-  <img src="quizanaImages/login.PNG">
+  <img src="quizaniaImages/login.PNG">
 </p>
 
 * ### Forgot Password ###
 <p align="center">
-  <img src="quizanaImages/forgotpassword.PNG">
+  <img src="quizaniaImages/forgotpassword.PNG">
 </p>
 
 * ### OTP Verification ###
 <p align="center">
-  <img src="quizanaImages/otpVerification.PNG">
+  <img src="quizaniaImages/otpVerification.PNG">
 </p>
 
 ## Screens for Dashboard
@@ -53,33 +53,33 @@
   <img src="quizanaImages/dashboard.PNG">
 </p>
 <p align="center">
-  <img src="quizanaImages/maindashboard.PNG">
+  <img src="quizaniaImages/maindashboard.PNG">
 </p>
 ### Profile ###
 <p align="center">
-  <img src="quizanaImages/profile.PNG">
+  <img src="quizaniaImages/profile.PNG">
 </p>
 
 ### Quiz Maker ### 
 <p align="center">
-  <img src="quizanaImages/Quiz1.PNG">
+  <img src="quizaniaImages/Quiz1.PNG">
 </p>
 <p align="center">
-  <img src="quizanaImages/Quiz2.PNG">
+  <img src="quizaniaImages/Quiz2.PNG">
 </p>
 <p align="center">
-  <img src="quizanaImages/Quiz3.PNG">
+  <img src="quizaniaImages/Quiz3.PNG">
 </p>
 
  ### Quiz Applicant ### 
 <p align="center">
-  <img src="quizanaImages/quiztaker1.PNG">
+  <img src="quizaniaImages/quiztaker1.PNG">
 </p>
 <p align="center">
-  <img src="quizanaImages/quiztaker2.PNG">
+  <img src="quizaniaImages/quiztaker2.PNG">
 </p>
 <p align="center">
-  <img src="quizanaImages/quiztaker3.PNG">
+  <img src="quizaniaImages/quiztaker3.PNG">
 </p>
 
 # Getting Started with Create React App
