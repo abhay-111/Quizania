@@ -20,6 +20,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+
 import { submitUserQuiz } from "../reducers/quizReducers";
 export default function Quiz() {
   const navigate = useNavigate();
