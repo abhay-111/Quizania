@@ -10,8 +10,7 @@
 
 <br/>
 <p align="center">
-  <img src="quizanaImages/login.PNG">
-  <img src="Project_snapshots/signup.PNG">
+  <img src="quizaniaImages/logo.PNG">
 </p>
 <b>
  Quizania provides a platform for teachers to create quiz for their classroom effectively and monitor the responses of the participants.
