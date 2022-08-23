@@ -177,7 +177,7 @@ export default function SideDrawer({ setcurrentComponent }) {
                 <ListItem
                   bg={"purple.600"}
                   borderRadius="xl"
-                  p={{ lg: "3", base: "2" }}
+                  p={{ lg: "3", base: "3" }}
                   cursor={"pointer"}
                   onClick={() => setActive(link.route, idx)}
                 >
@@ -200,17 +200,25 @@ export default function SideDrawer({ setcurrentComponent }) {
             if (idx == navigationList.length - 1) {
               return (
                 <ListItem
-                  p={{ lg: "3", base: "2" }}
-                  cursor={"pointer"}
-                  onClick={logoutUser}
+                  bg={"red.500"}
+                  borderRadius="xl"
+                  p={{ lg: "3", base: "3" }}
                   position="absolute"
                   bottom={"5"}
+                  cursor={"pointer"}
+                  mt={"auto"}
+                  w="80%"
+                  onClick={() => setActive(link.route, idx)}
                 >
                   <Flex gap={"5"} alignItems={"center"}>
-                    <CloseIcon fontSize={{ lg: "sm", base: "xs" }}></CloseIcon>
+                    <CloseIcon
+                      fontSize={{ lg: "xs", base: "xs" }}
+                      color={"white"}
+                    ></CloseIcon>
                     <Text
                       fontSize={{ base: "sm", lg: "md" }}
-                      fontWeight={"600"}
+                      fontWeight={"700"}
+                      color="white"
                     >
                       Logout
                     </Text>
