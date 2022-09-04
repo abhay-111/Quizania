@@ -59,14 +59,14 @@
 
 ## Screens for Dashboard
 
-*### Main Dashboard ### 
+* ### Main Dashboard ### 
 <p align="center">
   <img src="quizaniaImages/dashboard.PNG">
 </p>
 <p align="center">
   <img src="quizaniaImages/maindashboard.PNG">
 </p>
-### Profile ###
+* ### Profile ###
 <p align="center">
   <img src="quizaniaImages/profile.PNG">
 </p>
